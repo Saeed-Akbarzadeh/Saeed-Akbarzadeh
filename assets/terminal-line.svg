@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 44">
+<style>.blink{animation:b 1.2s steps(2,end) infinite}@keyframes b{50%{opacity:0}}</style>
+<rect x="0" y="1" width="1200" height="42" rx="10" fill="#0D1117" stroke="#30363D"/>
+<text x="24" y="28" font-family="monospace" font-size="16" fill="#00FF00">$ echo "Build. Test. Ship."</text>
+<rect x="274" y="15" width="9" height="16" fill="#00FF00" class="blink"/>
+</svg>

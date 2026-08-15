@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 210">
+<style>.bar{transform-origin:left;animation:grow 2.2s ease-out both}@keyframes grow{from{transform:scaleX(0)}}.p{animation:p 1.8s ease-in-out infinite}@keyframes p{50%{opacity:.55}}</style>
+<rect width="1200" height="210" rx="18" fill="#0D1117" stroke="#30363D"/>
+<text x="28" y="36" font-family="monospace" font-size="15" fill="#8B949E">$ current-focus</text>
+<g font-family="monospace" font-size="15">
+<text x="28" y="72" fill="#FFFFFF">Python</text><rect x="180" y="59" width="760" height="16" rx="8" fill="#161B22"/><rect x="180" y="59" width="720" height="16" rx="8" fill="#3776AB" class="bar"/>
+<text x="28" y="105" fill="#FFFFFF">Automation</text><rect x="180" y="92" width="760" height="16" rx="8" fill="#161B22"/><rect x="180" y="92" width="670" height="16" rx="8" fill="#00FF00" class="bar"/>
+<text x="28" y="138" fill="#FFFFFF">APIs</text><rect x="180" y="125" width="760" height="16" rx="8" fill="#161B22"/><rect x="180" y="125" width="625" height="16" rx="8" fill="#58A6FF" class="bar"/>
+<text x="28" y="171" fill="#FFFFFF">Web</text><rect x="180" y="158" width="760" height="16" rx="8" fill="#161B22"/><rect x="180" y="158" width="570" height="16" rx="8" fill="#61DAFB" class="bar"/>
+</g>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 24">
+<defs><style>.flow{stroke-dasharray:8 12;animation:dash 1.8s linear infinite}@keyframes dash{to{stroke-dashoffset:-40}}</style></defs>
+<line x1="10" y1="12" x2="1190" y2="12" stroke="#30363D" stroke-width="2"/>
+<line x1="10" y1="12" x2="1190" y2="12" stroke="#00FF00" stroke-opacity=".8" stroke-width="2" class="flow"/>
+</svg>

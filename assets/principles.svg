@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 170">
+<style>.dot{animation:p 1.7s ease-in-out infinite}.d2{animation-delay:.3s}.d3{animation-delay:.6s}.d4{animation-delay:.9s}.d5{animation-delay:1.2s}@keyframes p{50%{opacity:.25;transform:scale(.75)}}</style>
+<rect width="1200" height="170" rx="18" fill="#0D1117" stroke="#30363D"/>
+<g font-family="monospace" font-size="15" fill="#FFFFFF">
+<circle cx="42" cy="34" r="6" fill="#00FF00" class="dot"/><text x="62" y="39">Clean and readable code</text>
+<circle cx="42" cy="64" r="6" fill="#00FF00" class="dot d2"/><text x="62" y="69">Simple architecture over unnecessary complexity</text>
+<circle cx="42" cy="94" r="6" fill="#00FF00" class="dot d3"/><text x="62" y="99">Explicit validation and error handling</text>
+<circle cx="42" cy="124" r="6" fill="#00FF00" class="dot d4"/><text x="62" y="129">Tests for important behavior</text>
+<circle cx="42" cy="154" r="6" fill="#00FF00" class="dot d5"/><text x="62" y="159">Maintainability over demo-only code</text>
+</g>
+</svg>

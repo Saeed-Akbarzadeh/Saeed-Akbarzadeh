@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100">
+<style>.line{stroke-dasharray:6 12;animation:d 2s linear infinite}@keyframes d{to{stroke-dashoffset:-36}}</style>
+<rect width="1200" height="100" rx="18" fill="#0D1117" stroke="#30363D"/>
+<line x1="120" y1="24" x2="1080" y2="24" stroke="#00FF00" stroke-opacity=".25" class="line"/>
+<text x="600" y="65" text-anchor="middle" font-family="monospace" font-size="18" fill="#FFFFFF">Building useful software, one project at a time.</text>
+</svg>

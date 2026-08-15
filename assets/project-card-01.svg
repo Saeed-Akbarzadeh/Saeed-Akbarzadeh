@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 230">
+<style>.glow{animation:g 2.6s ease-in-out infinite}@keyframes g{50%{opacity:.45}}</style>
+<rect width="560" height="230" rx="18" fill="#0D1117" stroke="#30363D"/>
+<rect x="0" y="0" width="560" height="10" rx="6" fill="#00FF00" class="glow"/>
+<text x="28" y="58" font-family="monospace" font-size="15" fill="#00FF00">PROJECT_01</text>
+<text x="28" y="97" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">Google Sheets Automation</text>
+<text x="28" y="132" font-family="monospace" font-size="15" fill="#8B949E">Python · APIs · Automation · Validation</text>
+<rect x="28" y="160" width="190" height="34" rx="8" fill="#161B22"/>
+<text x="123" y="182" text-anchor="middle" font-family="monospace" font-size="14" fill="#00FF00">PRODUCTION FOCUSED</text>
+</svg>
