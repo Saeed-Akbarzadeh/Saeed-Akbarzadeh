@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="150" viewBox="0 0 1160 150">
+<rect width="1160" height="150" rx="18" fill="#050A07" stroke="#30363D"/>
+<text x="28" y="48" font-family="monospace" font-size="16" fill="#00FF00">$ open ./repositories</text>
+<text x="28" y="92" font-family="monospace" font-size="14" fill="#8B949E">No public repositories detected yet.</text>
+<text x="28" y="120" font-family="monospace" font-size="13" fill="#F2CC60">AUTO-DISCOVERY ENABLED · PROFILE REPOSITORY EXCLUDED</text>
+</svg>

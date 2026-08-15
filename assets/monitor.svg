@@ -1,63 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1520" viewBox="0 0 1200 1520">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1380" viewBox="0 0 1200 1380">
 <defs>
   <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stop-color="#07110A"/>
-    <stop offset="55%" stop-color="#020604"/>
-    <stop offset="100%" stop-color="#000000"/>
+    <stop offset="0%" stop-color="#07110A"/><stop offset="58%" stop-color="#020604"/><stop offset="100%" stop-color="#000000"/>
   </linearGradient>
   <linearGradient id="chrome" x1="0" x2="1">
-    <stop offset="0%" stop-color="#11161C"/>
-    <stop offset="50%" stop-color="#1A2028"/>
-    <stop offset="100%" stop-color="#11161C"/>
+    <stop offset="0%" stop-color="#11161C"/><stop offset="50%" stop-color="#1A2028"/><stop offset="100%" stop-color="#11161C"/>
   </linearGradient>
-  <radialGradient id="vignette">
-    <stop offset="55%" stop-color="#00FF00" stop-opacity="0"/>
-    <stop offset="100%" stop-color="#00FF00" stop-opacity=".11"/>
-  </radialGradient>
-  <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
-    <path d="M80 0H0V80" fill="none" stroke="#00FF00" stroke-opacity=".10" stroke-width="1"/>
-  </pattern>
-  <pattern id="scanlines" width="4" height="8" patternUnits="userSpaceOnUse">
-    <rect width="4" height="4" fill="#FFFFFF" fill-opacity=".025"/>
-  </pattern>
+  <radialGradient id="vignette"><stop offset="56%" stop-color="#00FF00" stop-opacity="0"/><stop offset="100%" stop-color="#00FF00" stop-opacity=".11"/></radialGradient>
+  <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0V80" fill="none" stroke="#00FF00" stroke-opacity=".10"/></pattern>
+  <pattern id="scanlines" width="4" height="8" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#FFFFFF" fill-opacity=".023"/></pattern>
   <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   <style>
-    .pulse{animation:pulse 3s ease-in-out infinite}.blink{animation:blink 1s steps(2,end) infinite}
-    .scan{animation:scan 5s linear infinite}.flow{stroke-dasharray:10 16;animation:flow 2s linear infinite}
-    .float{animation:float 7s ease-in-out infinite}
-    @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
-    @keyframes blink{50%{opacity:0}}
-    @keyframes scan{0%{transform:translateY(-300px)}100%{transform:translateY(1520px)}}
-    @keyframes flow{to{stroke-dashoffset:-52}}
-    @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(10px,-8px)}}
+    .pulse{animation:p 3s ease-in-out infinite}.blink{animation:b 1.05s steps(2,end) infinite}
+    .scan{animation:s 5.2s linear infinite}.float{animation:f 8s ease-in-out infinite}
+    .flow{stroke-dasharray:10 16;animation:d 2s linear infinite}
+    @keyframes p{0%,100%{opacity:.35}50%{opacity:1}}
+    @keyframes b{50%{opacity:0}}
+    @keyframes s{0%{transform:translateY(-280px)}100%{transform:translateY(1380px)}}
+    @keyframes f{0%,100%{transform:translate(0,0)}50%{transform:translate(12px,-8px)}}
+    @keyframes d{to{stroke-dashoffset:-52}}
   </style>
 </defs>
 
-<!-- Monitor shell -->
-<rect x="22" y="22" width="1156" height="1476" rx="34" fill="#090C10" stroke="#3B444E" stroke-width="4"/>
-<rect x="42" y="42" width="1116" height="1436" rx="26" fill="url(#screen)" stroke="#1F2933" stroke-width="2"/>
-<rect x="42" y="42" width="1116" height="1436" rx="26" fill="url(#grid)"/>
-<rect x="42" y="42" width="1116" height="1436" rx="26" fill="url(#vignette)"/>
-<rect x="42" y="42" width="1116" height="1436" rx="26" fill="url(#scanlines)"/>
-<rect x="42" y="-180" width="1116" height="230" fill="#00FF00" fill-opacity=".05" class="scan"/>
+<rect x="22" y="22" width="1156" height="1336" rx="34" fill="#090C10" stroke="#3B444E" stroke-width="4"/>
+<rect x="42" y="42" width="1116" height="1296" rx="26" fill="url(#screen)" stroke="#1F2933" stroke-width="2"/>
+<rect x="42" y="42" width="1116" height="1296" rx="26" fill="url(#grid)"/>
+<rect x="42" y="42" width="1116" height="1296" rx="26" fill="url(#vignette)"/>
+<rect x="42" y="42" width="1116" height="1296" rx="26" fill="url(#scanlines)"/>
+<rect x="42" y="-160" width="1116" height="220" fill="#00FF00" fill-opacity=".05" class="scan"/>
 
-<!-- Terminal chrome -->
 <rect x="42" y="42" width="1116" height="58" rx="26" fill="url(#chrome)"/>
-<circle cx="76" cy="71" r="8" fill="#FF5F56"/>
-<circle cx="101" cy="71" r="8" fill="#FFBD2E"/>
-<circle cx="126" cy="71" r="8" fill="#27C93F"/>
+<circle cx="76" cy="71" r="8" fill="#FF5F56"/><circle cx="101" cy="71" r="8" fill="#FFBD2E"/><circle cx="126" cy="71" r="8" fill="#27C93F"/>
 <text x="154" y="78" font-family="monospace" font-size="16" fill="#8B949E">saeed@github — developer-console</text>
 
-<!-- Decorative HUD/parallax layer -->
 <g opacity=".18" class="float">
   <path d="M800 155L1090 82M780 215L1140 125M830 275L1170 190" stroke="#00FF00" stroke-width="2"/>
-  <circle cx="1020" cy="220" r="78" fill="none" stroke="#00FF00"/>
-  <circle cx="1020" cy="220" r="112" fill="none" stroke="#00FF00"/>
-  <circle cx="1020" cy="220" r="4" fill="#00FF00"/>
+  <circle cx="1018" cy="218" r="78" fill="none" stroke="#00FF00"/>
+  <circle cx="1018" cy="218" r="112" fill="none" stroke="#00FF00"/>
+  <circle cx="1018" cy="218" r="4" fill="#00FF00"/>
 </g>
 
-<!-- Identity -->
-<rect x="72" y="126" width="1056" height="390" rx="20" fill="#050A07" fill-opacity=".84" stroke="#00FF00" stroke-opacity=".34" stroke-width="2"/>
+<rect x="72" y="126" width="1056" height="392" rx="20" fill="#050A07" fill-opacity=".84" stroke="#00FF00" stroke-opacity=".34" stroke-width="2"/>
 <text x="104" y="174" font-family="monospace" font-size="18" fill="#00FF00">$ boot profile --verbose</text>
 <text x="104" y="214" font-family="monospace" font-size="15" fill="#7EE787">[ OK ] identity loaded</text>
 <text x="104" y="242" font-family="monospace" font-size="15" fill="#7EE787">[ OK ] stack initialized</text>
@@ -68,7 +51,6 @@
 <text x="104" y="462" font-family="monospace" font-size="16" fill="#00FF00">$ _</text>
 <rect x="128" y="447" width="9" height="18" fill="#00FF00" class="blink"/>
 
-<!-- HUD target -->
 <g transform="translate(1010 330)" class="pulse">
   <circle r="64" fill="none" stroke="#00FF00" stroke-opacity=".22" stroke-width="2"/>
   <circle r="44" fill="none" stroke="#00FF00" stroke-opacity=".55" stroke-width="2"/>
@@ -77,61 +59,45 @@
   <path d="M-82 0H-48M48 0H82M0-82V-48M0 48V82" stroke="#00FF00" stroke-opacity=".7"/>
 </g>
 
-<!-- Status -->
-<rect x="72" y="542" width="510" height="300" rx="18" fill="#050A07" fill-opacity=".86" stroke="#30363D"/>
-<text x="96" y="582" font-family="monospace" font-size="17" fill="#58A6FF">$ system --status</text>
-<circle cx="111" cy="620" r="7" fill="#27C93F" class="pulse"/>
-<text x="130" y="626" font-family="monospace" font-size="16" fill="#FFFFFF">ONLINE</text>
-<text x="96" y="658" font-family="monospace" font-size="14" fill="#8B949E">Availability : Remote</text>
-<text x="96" y="686" font-family="monospace" font-size="14" fill="#8B949E">Mode         : Portfolio</text>
-<text x="96" y="714" font-family="monospace" font-size="14" fill="#8B949E">Primary      : Python</text>
-<text x="96" y="742" font-family="monospace" font-size="14" fill="#8B949E">Focus        : Automation / APIs</text>
-<text x="96" y="790" font-family="monospace" font-size="14" fill="#00FF00">$ status --ready</text>
+<rect x="72" y="544" width="510" height="294" rx="18" fill="#050A07" fill-opacity=".86" stroke="#30363D"/>
+<text x="96" y="584" font-family="monospace" font-size="17" fill="#58A6FF">$ system --status</text>
+<circle cx="111" cy="622" r="7" fill="#27C93F" class="pulse"/><text x="130" y="628" font-family="monospace" font-size="16" fill="#FFFFFF">ONLINE</text>
+<text x="96" y="660" font-family="monospace" font-size="14" fill="#8B949E">Availability : Remote</text>
+<text x="96" y="688" font-family="monospace" font-size="14" fill="#8B949E">Mode         : Portfolio</text>
+<text x="96" y="716" font-family="monospace" font-size="14" fill="#8B949E">Primary      : Python</text>
+<text x="96" y="744" font-family="monospace" font-size="14" fill="#8B949E">Focus        : Automation / APIs</text>
+<text x="96" y="792" font-family="monospace" font-size="14" fill="#00FF00">$ status --ready</text>
 
-<!-- Focus -->
-<rect x="608" y="542" width="520" height="300" rx="18" fill="#050A07" fill-opacity=".86" stroke="#30363D"/>
-<text x="632" y="582" font-family="monospace" font-size="17" fill="#00FF00">$ focus --now</text>
+<rect x="608" y="544" width="520" height="294" rx="18" fill="#050A07" fill-opacity=".86" stroke="#30363D"/>
+<text x="632" y="584" font-family="monospace" font-size="17" fill="#00FF00">$ focus --now</text>
+<text x="632" y="624" font-family="monospace" font-size="14" fill="#FFFFFF">Python</text>
+<rect x="750" y="612" width="300" height="14" rx="7" fill="#161B22"/><rect x="750" y="612" width="270" height="14" rx="7" fill="#3776AB"/>
+<text x="632" y="666" font-family="monospace" font-size="14" fill="#FFFFFF">Automation</text>
+<rect x="750" y="654" width="300" height="14" rx="7" fill="#161B22"/><rect x="750" y="654" width="250" height="14" rx="7" fill="#00FF00"/>
+<text x="632" y="708" font-family="monospace" font-size="14" fill="#FFFFFF">APIs</text>
+<rect x="750" y="696" width="300" height="14" rx="7" fill="#161B22"/><rect x="750" y="696" width="232" height="14" rx="7" fill="#58A6FF"/>
+<text x="632" y="750" font-family="monospace" font-size="14" fill="#FFFFFF">Web</text>
+<rect x="750" y="738" width="300" height="14" rx="7" fill="#161B1B"/><rect x="750" y="738" width="210" height="14" rx="7" fill="#61DAFB"/>
+<text x="632" y="794" font-family="monospace" font-size="14" fill="#8B949E">focus indicators — not skill claims</text>
 
-<text x="632" y="622" font-family="monospace" font-size="14" fill="#FFFFFF">Python</text>
-<rect x="750" y="610" width="300" height="14" rx="7" fill="#161B22"/>
-<rect x="750" y="610" width="270" height="14" rx="7" fill="#3776AB"/>
-<text x="632" y="664" font-family="monospace" font-size="14" fill="#FFFFFF">Automation</text>
-<rect x="750" y="652" width="300" height="14" rx="7" fill="#161B22"/>
-<rect x="750" y="652" width="250" height="14" rx="7" fill="#00FF00"/>
-<text x="632" y="706" font-family="monospace" font-size="14" fill="#FFFFFF">APIs</text>
-<rect x="750" y="694" width="300" height="14" rx="7" fill="#161B22"/>
-<rect x="750" y="694" width="232" height="14" rx="7" fill="#58A6FF"/>
-<text x="632" y="748" font-family="monospace" font-size="14" fill="#FFFFFF">Web</text>
-<rect x="750" y="736" width="300" height="14" rx="7" fill="#161B22"/>
-<rect x="750" y="736" width="210" height="14" rx="7" fill="#61DAFB"/>
-<text x="632" y="790" font-family="monospace" font-size="14" fill="#8B949E">focus indicators — not skill claims</text>
-
-<!-- Stack -->
-<rect x="72" y="868" width="1056" height="188" rx="18" fill="#050A07" fill-opacity=".86" stroke="#30363D"/>
-<text x="96" y="908" font-family="monospace" font-size="17" fill="#F2CC60">$ tech --stack</text>
+<rect x="72" y="866" width="1056" height="188" rx="18" fill="#050A07" fill-opacity=".86" stroke="#30363D"/>
+<text x="96" y="906" font-family="monospace" font-size="17" fill="#F2CC60">$ tech --stack</text>
 <g font-family="Arial,sans-serif" font-weight="700" font-size="15">
-<rect x="96" y="932" width="150" height="44" rx="10" fill="#11161C" stroke="#3776AB"/><circle cx="118" cy="954" r="7" fill="#3776AB"/><text x="136" y="960" fill="#FFFFFF">Python</text>
-<rect x="258" y="932" width="150" height="44" rx="10" fill="#11161C" stroke="#F7DF1E"/><circle cx="280" cy="954" r="7" fill="#F7DF1E"/><text x="298" y="960" fill="#FFFFFF">JavaScript</text>
-<rect x="420" y="932" width="150" height="44" rx="10" fill="#11161C" stroke="#61DAFB"/><circle cx="442" cy="954" r="7" fill="#61DAFB"/><text x="460" y="960" fill="#FFFFFF">React</text>
-<rect x="582" y="932" width="150" height="44" rx="10" fill="#11161C" stroke="#2496ED"/><circle cx="604" cy="954" r="7" fill="#2496ED"/><text x="622" y="960" fill="#FFFFFF">Docker</text>
-<rect x="744" y="932" width="150" height="44" rx="10" fill="#11161C" stroke="#F05032"/><circle cx="766" cy="954" r="7" fill="#F05032"/><text x="784" y="960" fill="#FFFFFF">Git</text>
-<rect x="906" y="932" width="198" height="44" rx="10" fill="#11161C" stroke="#00D084"/><circle cx="928" cy="954" r="7" fill="#00D084"/><text x="946" y="960" fill="#FFFFFF">REST APIs</text>
+<rect x="96" y="930" width="150" height="44" rx="10" fill="#11161C" stroke="#3776AB"/><circle cx="118" cy="952" r="7" fill="#3776AB"/><text x="136" y="958" fill="#FFFFFF">Python</text>
+<rect x="258" y="930" width="150" height="44" rx="10" fill="#11161C" stroke="#F7DF1E"/><circle cx="280" cy="952" r="7" fill="#F7DF1E"/><text x="298" y="958" fill="#FFFFFF">JavaScript</text>
+<rect x="420" y="930" width="150" height="44" rx="10" fill="#11161C" stroke="#61DAFB"/><circle cx="442" cy="952" r="7" fill="#61DAFB"/><text x="460" y="958" fill="#FFFFFF">React</text>
+<rect x="582" y="930" width="150" height="44" rx="10" fill="#11161C" stroke="#2496ED"/><circle cx="604" cy="952" r="7" fill="#2496ED"/><text x="622" y="958" fill="#FFFFFF">Docker</text>
+<rect x="744" y="930" width="150" height="44" rx="10" fill="#11161C" stroke="#F05032"/><circle cx="766" cy="952" r="7" fill="#F05032"/><text x="784" y="958" fill="#FFFFFF">Git</text>
+<rect x="906" y="930" width="198" height="44" rx="10" fill="#11161C" stroke="#00D084"/><circle cx="928" cy="952" r="7" fill="#00D084"/><text x="946" y="958" fill="#FFFFFF">REST APIs</text>
 </g>
-<text x="96" y="1022" font-family="monospace" font-size="14" fill="#8B949E">Current portfolio stack.</text>
+<text x="96" y="1020" font-family="monospace" font-size="14" fill="#8B949E">Current portfolio stack.</text>
 
-<!-- Dynamic repositories launch area -->
-<rect x="72" y="1080" width="1056" height="278" rx="18" fill="#050A07" fill-opacity=".86" stroke="#30363D"/>
-<text x="96" y="1120" font-family="monospace" font-size="17" fill="#00FF00">$ ls ./repositories --auto</text>
-<text x="96" y="1160" font-family="monospace" font-size="15" fill="#8B949E">Public repositories are discovered automatically.</text>
-<text x="96" y="1192" font-family="monospace" font-size="15" fill="#8B949E">Profile repository is excluded from the portfolio index.</text>
-<line x1="96" y1="1220" x2="1104" y2="1220" stroke="#30363D"/>
-<text x="96" y="1260" font-family="monospace" font-size="15" fill="#7EE787">[ AUTO-DISCOVERY ENABLED ]</text>
-<text x="96" y="1292" font-family="monospace" font-size="15" fill="#F2CC60">[ UPDATE: GITHUB ACTIONS ]</text>
-<text x="96" y="1324" font-family="monospace" font-size="14" fill="#8B949E">New public repos appear automatically after the next scheduled run.</text>
-<path d="M870 1260H1060" stroke="#00FF00" stroke-width="2" class="flow"/>
-
-<!-- Footer -->
-<rect x="72" y="1384" width="1056" height="56" rx="14" fill="#10151B" stroke="#30363D"/>
-<text x="98" y="1420" font-family="monospace" font-size="15" fill="#00FF00">$ echo "Building useful software, one project at a time."</text>
-<rect x="1036" y="1402" width="9" height="18" fill="#00FF00" class="blink"/>
+<rect x="72" y="1082" width="1056" height="218" rx="18" fill="#050A07" fill-opacity=".86" stroke="#30363D"/>
+<text x="96" y="1124" font-family="monospace" font-size="17" fill="#00FF00">$ ls ./repositories --auto</text>
+<text x="96" y="1166" font-family="monospace" font-size="15" fill="#8B949E">Public projects are mounted below as clickable terminal cards.</text>
+<text x="96" y="1200" font-family="monospace" font-size="15" fill="#7EE787">[ AUTO-DISCOVERY ENABLED ]</text>
+<text x="96" y="1232" font-family="monospace" font-size="15" fill="#F2CC60">[ PROFILE REPOSITORY EXCLUDED ]</text>
+<text x="96" y="1264" font-family="monospace" font-size="14" fill="#8B949E">No manual project URLs are required.</text>
+<line x1="96" y1="1282" x2="1080" y2="1282" stroke="#30363D"/>
+<line x1="96" y1="1282" x2="820" y2="1282" stroke="#00FF00" stroke-width="2" class="flow"/>
 </svg>

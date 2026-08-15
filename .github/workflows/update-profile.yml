@@ -11,27 +11,25 @@ permissions:
 jobs:
   update-profile:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Update dynamic repository section
+      - name: Generate clickable repository cards
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USERNAME: Saeed-Akbarzadeh
+          GITHUB_REPOSITORY: ${{ github.repository }}
         run: python scripts/update_profile.py
 
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           if git diff --quiet; then
             echo "No profile changes detected."
             exit 0
           fi
-
-          git add README.md assets/repositories-panel.svg
-          git commit -m "chore: update public repository showcase"
+          git add README.md assets/repo-*.svg
+          git commit -m "chore: refresh repository showcase"
           git push

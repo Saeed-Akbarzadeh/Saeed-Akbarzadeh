@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import html
 import json
 import os
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
 from pathlib import Path
 
 USERNAME = os.environ.get("GITHUB_USERNAME", "Saeed-Akbarzadeh")
@@ -16,144 +16,106 @@ ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
 README = ROOT / "README.md"
 
-API_VERSION = "2026-03-10"
 API_URL = (
     f"https://api.github.com/users/{urllib.parse.quote(USERNAME)}/repos"
     "?type=owner&sort=updated&direction=desc&per_page=100"
 )
 
+CARD_TEMPLATE = '''<svg xmlns="http://www.w3.org/2000/svg" width="570" height="180" viewBox="0 0 570 180">
+<defs>
+<style>
+.pulse{animation:p 2.8s ease-in-out infinite}
+.flow{stroke-dasharray:7 11;animation:d 1.6s linear infinite}
+@keyframes p{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes d{to{stroke-dashoffset:-36}}
+</style>
+</defs>
+<rect x="2" y="2" width="566" height="176" rx="18" fill="#050A07" stroke="#30363D" stroke-width="2"/>
+<rect x="2" y="2" width="566" height="8" rx="5" fill="{accent}" class="pulse"/>
+<circle cx="28" cy="31" r="6" fill="#FF5F56"/><circle cx="48" cy="31" r="6" fill="#FFBD2E"/><circle cx="68" cy="31" r="6" fill="#27C93F"/>
+<text x="88" y="36" font-family="monospace" font-size="13" fill="#8B949E">repository-terminal</text>
+<text x="28" y="76" font-family="monospace" font-size="14" fill="{accent}">PROJECT_{index:02d}</text>
+<text x="28" y="108" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">{name}</text>
+<text x="28" y="133" font-family="monospace" font-size="13" fill="#8B949E">{desc}</text>
+<text x="28" y="158" font-family="monospace" font-size="13" fill="#F2CC60">{language} · ★ {stars}</text>
+<text x="428" y="158" font-family="monospace" font-size="13" fill="{accent}">OPEN →</text>
+<line x1="380" y1="166" x2="530" y2="166" stroke="{accent}" stroke-opacity=".55" class="flow"/>
+</svg>'''
+
 def fetch_repos() -> list[dict]:
     headers = {
         "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": API_VERSION,
+        "X-GitHub-Api-Version": "2026-03-10",
         "User-Agent": "saeed-akbarzadeh-profile-updater",
     }
     token = os.environ.get("GITHUB_TOKEN")
     if token:
         headers["Authorization"] = f"Bearer {token}"
-
     req = urllib.request.Request(API_URL, headers=headers)
     with urllib.request.urlopen(req, timeout=30) as response:
         data = json.load(response)
-
     repos = []
     for repo in data:
-        if repo.get("private"):
-            continue
-        if repo.get("archived"):
-            continue
-        if repo.get("fork"):
+        if repo.get("private") or repo.get("archived") or repo.get("fork"):
             continue
         if repo.get("name") == CURRENT_REPO:
             continue
         repos.append(repo)
-
     return repos[:MAX_REPOS]
 
-def esc(text: str) -> str:
-    return (
-        str(text or "")
-        .replace("&", "&amp;")
-        .replace("<", "&lt;")
-        .replace(">", "&gt;")
+def esc(value: str, max_len: int = 74) -> str:
+    text = " ".join(str(value or "").split())
+    if len(text) > max_len:
+        text = text[: max_len - 1] + "…"
+    return html.escape(text)
+
+def make_card(repo: dict, index: int) -> str:
+    return CARD_TEMPLATE.format(
+        accent="#00FF00" if index % 2 else "#58A6FF",
+        index=index,
+        name=esc(repo.get("name"), 34),
+        desc=esc(repo.get("description") or "No description available.", 74),
+        language=esc(repo.get("language") or "n/a", 18),
+        stars=int(repo.get("stargazers_count", 0)),
     )
 
-def short(text: str, n: int = 72) -> str:
-    text = " ".join(str(text or "").split())
-    return text if len(text) <= n else text[: n - 1] + "…"
-
-def date_label(iso: str | None) -> str:
-    if not iso:
-        return "unknown"
-    try:
-        dt = datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone(timezone.utc)
-        return dt.strftime("%Y-%m-%d")
-    except ValueError:
-        return "unknown"
-
-def generate_svg(repos: list[dict]) -> str:
-    rows = []
-    y = 96
-
-    if not repos:
-        return """<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
-<rect width="1200" height="360" rx="18" fill="#050A07" stroke="#30363D" stroke-width="2"/>
-<text x="30" y="48" font-family="monospace" font-size="18" fill="#00FF00">$ open ./repositories</text>
-<text x="30" y="95" font-family="monospace" font-size="16" fill="#F2CC60">NO PUBLIC PROJECTS DETECTED</text>
-<text x="30" y="135" font-family="monospace" font-size="14" fill="#8B949E">Create a public repository and it will appear here automatically.</text>
-<text x="30" y="205" font-family="monospace" font-size="15" fill="#7EE787">[ AUTO-DISCOVERY ENABLED ]</text>
-</svg>"""
-
-    # One row per repo. Links are rendered separately in README for clickability.
-    for index, repo in enumerate(repos, start=1):
-        name = esc(short(repo.get("name"), 34))
-        desc = esc(short(repo.get("description"), 72))
-        language = esc(repo.get("language") or "n/a")
-        stars = int(repo.get("stargazers_count", 0))
-        updated = date_label(repo.get("pushed_at"))
-        color = "#00FF00" if index % 2 else "#58A6FF"
-        rows.append(
-            f'<rect x="30" y="{y}" width="1140" height="82" rx="12" fill="#0A100C" stroke="{color}" stroke-opacity=".28"/>'
-            f'<text x="52" y="{y+28}" font-family="monospace" font-size="15" fill="{color}">PROJECT_{index:02d}</text>'
-            f'<text x="185" y="{y+28}" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">{name}</text>'
-            f'<text x="185" y="{y+53}" font-family="monospace" font-size="13" fill="#8B949E">{desc}</text>'
-            f'<text x="890" y="{y+28}" font-family="monospace" font-size="13" fill="#F2CC60">{language}</text>'
-            f'<text x="890" y="{y+52}" font-family="monospace" font-size="12" fill="#8B949E">★ {stars} · {updated}</text>'
-        )
-        y += 94
-
-    height = max(250, y + 35)
-    body = "\n".join(rows)
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="{height}" viewBox="0 0 1200 {height}">
-<rect width="1200" height="{height}" rx="18" fill="#050A07" stroke="#30363D" stroke-width="2"/>
-<text x="30" y="48" font-family="monospace" font-size="18" fill="#00FF00">$ open ./repositories</text>
-<text x="30" y="76" font-family="monospace" font-size="13" fill="#8B949E">AUTO-DISCOVERED · CURRENT PROFILE REPO EXCLUDED</text>
-{body}
-</svg>"""
-
 def update_readme(repos: list[dict]) -> None:
-    content = README.read_text(encoding="utf-8")
-    start = "<!-- REPOSITORY_LINKS:START -->"
-    end = "<!-- REPOSITORY_LINKS:END -->"
-
-    links = [
-        start,
-        "## `$ open ./repositories`",
-        "",
-        "> Automatically generated from your public repositories. The current profile repository is excluded.",
-        "",
-    ]
-
+    start = "<!-- REPOSITORIES:START -->"
+    end = "<!-- REPOSITORIES:END -->"
+    parts = [start, '<div align="center">']
     if repos:
         for index, repo in enumerate(repos, start=1):
-            name = repo.get("name", "unknown")
-            url = repo.get("html_url", "#")
-            desc = " ".join((repo.get("description") or "No description.").split())
-            language = repo.get("language") or "n/a"
-            stars = repo.get("stargazers_count", 0)
-            links.append(
-                f'{index:02d}. **[{name}]({url})** — {desc} · `{language}` · ★ {stars}'
+            filename = f"repo-{index:02d}.svg"
+            (ASSETS / filename).write_text(make_card(repo, index), encoding="utf-8")
+            url = html.escape(repo.get("html_url", "#"), quote=True)
+            name = html.escape(repo.get("name", "Repository"))
+            parts.append(
+                f'<a href="{url}"><img src="./assets/{filename}" alt="{name}" width="48%"></a>'
             )
+            if index % 2 == 0:
+                parts.append("<br>")
     else:
-        links.append("- No public portfolio repositories detected yet.")
-
-    links.append(end)
-    replacement = "\n".join(links)
+        parts.append(
+            '<img src="./assets/repositories-empty.svg" alt="No public repositories" width="100%">'
+        )
+    parts += ["</div>", end]
+    content = README.read_text(encoding="utf-8")
     before = content.split(start, 1)[0]
     after = content.split(end, 1)[1]
-    README.write_text(before + replacement + after, encoding="utf-8")
+    README.write_text(before + "\n".join(parts) + after, encoding="utf-8")
+
+def remove_stale_cards() -> None:
+    for card in ASSETS.glob("repo-*.svg"):
+        card.unlink()
 
 def main() -> None:
+    remove_stale_cards()
     repos = fetch_repos()
-    (ASSETS / "repositories-panel.svg").write_text(generate_svg(repos), encoding="utf-8")
     update_readme(repos)
     print(json.dumps({
         "username": USERNAME,
         "excluded_repo": CURRENT_REPO,
-        "repositories": [
-            {"name": r["name"], "url": r["html_url"]}
-            for r in repos
-        ],
+        "repositories": [{"name": r["name"], "url": r["html_url"]} for r in repos],
     }, indent=2))
 
 if __name__ == "__main__":

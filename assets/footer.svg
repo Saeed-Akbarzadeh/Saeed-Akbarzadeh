@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="92" viewBox="0 0 1200 92">
-<rect width="1200" height="92" rx="18" fill="#0D1117" stroke="#30363D"/>
-<text x="600" y="57" text-anchor="middle" font-family="monospace" font-size="18" fill="#FFFFFF">$ echo "Building useful software, one project at a time."</text>
-<line x1="120" y1="22" x2="1080" y2="22" stroke="#00FF00" stroke-opacity=".25" stroke-dasharray="7 11">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="88" viewBox="0 0 1200 88">
+<rect width="1200" height="88" rx="18" fill="#0D1117" stroke="#30363D"/>
+<text x="600" y="54" text-anchor="middle" font-family="monospace" font-size="18" fill="#FFFFFF">$ echo "Building useful software, one project at a time."</text>
+<line x1="110" y1="20" x2="1090" y2="20" stroke="#00FF00" stroke-opacity=".24" stroke-dasharray="7 11">
   <animate attributeName="stroke-dashoffset" from="0" to="-36" dur="1.8s" repeatCount="indefinite"/>
 </line>
 </svg>

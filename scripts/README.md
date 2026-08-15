@@ -1,7 +1,8 @@
-# Profile updater
+# Dynamic repository cards
 
-`update_profile.py` queries GitHub's public repository API, excludes the current profile
-repository automatically, filters out forks/archived/private repositories, and regenerates
-the repository showcase.
+Public repositories are discovered automatically. The profile repository is excluded.
+Each graphical card is wrapped in a normal HTML link, so clicking the card opens the
+actual repository instead of the SVG asset.
 
-It is invoked by `.github/workflows/update-profile.yml`.
+The duplicate textual repository list and the external activity graph are intentionally
+removed so the README stays visually continuous and terminal-focused.
