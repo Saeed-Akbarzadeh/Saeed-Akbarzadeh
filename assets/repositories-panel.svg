@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="390" viewBox="0 0 1200 390">
+<rect width="1200" height="390" rx="18" fill="#050A07" stroke="#30363D" stroke-width="2"/>
+<text x="30" y="46" font-family="monospace" font-size="18" fill="#00FF00">$ open ./repositories</text>
+<text x="30" y="86" font-family="monospace" font-size="15" fill="#8B949E">AUTO-DISCOVERED PUBLIC REPOSITORIES</text>
+<text x="30" y="140" font-family="monospace" font-size="16" fill="#F2CC60">[ WAITING FOR FIRST GITHUB ACTION RUN ]</text>
+<text x="30" y="180" font-family="monospace" font-size="14" fill="#8B949E">The updater will populate this panel with your public repositories</text>
+<text x="30" y="206" font-family="monospace" font-size="14" fill="#8B949E">and automatically exclude the profile repository.</text>
+<text x="30" y="272" font-family="monospace" font-size="15" fill="#7EE787">$ gh-profile sync --public --exclude-current</text>
+<text x="30" y="308" font-family="monospace" font-size="14" fill="#8B949E">Updates: daily + manual dispatch</text>
+<rect x="30" y="342" width="380" height="4" rx="2" fill="#00FF00">
+  <animate attributeName="width" values="160;380;160" dur="2.6s" repeatCount="indefinite"/>
+</rect>
+</svg>
