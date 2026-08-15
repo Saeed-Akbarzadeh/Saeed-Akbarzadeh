@@ -5,6 +5,11 @@
 <br>
 
 <!-- REPOSITORIES:START -->
+<div align="center">
+<a href="https://github.com/Saeed-Akbarzadeh/python-api-client-sdk"><img src="./assets/repo-01.svg" alt="python-api-client-sdk" width="48%"></a>
+<a href="https://github.com/Saeed-Akbarzadeh/python-google-sheets-automation"><img src="./assets/repo-02.svg" alt="python-google-sheets-automation" width="48%"></a>
+<br>
+</div>
 <!-- REPOSITORIES:END -->
 
 <br>
