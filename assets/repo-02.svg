@@ -2,103 +2,20 @@
     width="570" height="180" viewBox="0 0 570 180">
 <defs>
 <style>
-.pulse {
-    animation: pulse 2.8s ease-in-out infinite;
-}
-
-.flow {
-    stroke-dasharray: 7 11;
-    animation: flow 1.6s linear infinite;
-}
-
-@keyframes pulse {
-    0%,100% { opacity: .45; }
-    50% { opacity: 1; }
-}
-
-@keyframes flow {
-    to { stroke-dashoffset: -36; }
-}
+.pulse { animation: pulse 2.8s ease-in-out infinite; }
+.flow { stroke-dasharray: 7 11; animation: flow 1.6s linear infinite; }
+@keyframes pulse { 0%,100% { opacity: .45; } 50% { opacity: 1; } }
+@keyframes flow { to { stroke-dashoffset: -36; } }
 </style>
 </defs>
-
-<rect
-    x="2" y="2" width="566" height="176" rx="18"
-    fill="#050A07"
-    stroke="#30363D"
-    stroke-width="2"
-/>
-
-<rect
-    x="2" y="2" width="566" height="8" rx="5"
-    fill="#58A6FF"
-    class="pulse"
-/>
-
-<circle cx="28" cy="31" r="6" fill="#FF5F56"/>
-<circle cx="48" cy="31" r="6" fill="#FFBD2E"/>
-<circle cx="68" cy="31" r="6" fill="#27C93F"/>
-
-<text
-    x="88" y="36"
-    font-family="monospace"
-    font-size="13"
-    fill="#8B949E"
->
-    repository-terminal
-</text>
-
-<text
-    x="28" y="76"
-    font-family="monospace"
-    font-size="14"
-    fill="#58A6FF"
->
-    PROJECT_02
-</text>
-
-<text
-    x="28" y="108"
-    font-family="Arial,sans-serif"
-    font-size="24"
-    font-weight="700"
-    fill="#FFFFFF"
->
-    python-google-sheets-automation
-</text>
-
-<text
-    x="28" y="133"
-    font-family="monospace"
-    font-size="13"
-    fill="#8B949E"
->
-    No description available.
-</text>
-
-<text
-    x="28" y="158"
-    font-family="monospace"
-    font-size="13"
-    fill="#F2CC60"
->
-    Python · ★ 0
-</text>
-
-<text
-    x="428" y="158"
-    font-family="monospace"
-    font-size="13"
-    fill="#58A6FF"
->
-    OPEN →
-</text>
-
-<line
-    x1="380" y1="166"
-    x2="530" y2="166"
-    stroke="#58A6FF"
-    stroke-opacity=".55"
-    class="flow"
-/>
+<rect x="2" y="2" width="566" height="176" rx="18" fill="#050A07" stroke="#30363D" stroke-width="2"/>
+<rect x="2" y="2" width="566" height="8" rx="5" fill="#58A6FF" class="pulse"/>
+<circle cx="28" cy="31" r="6" fill="#FF5F56"/><circle cx="48" cy="31" r="6" fill="#FFBD2E"/><circle cx="68" cy="31" r="6" fill="#27C93F"/>
+<text x="88" y="36" font-family="monospace" font-size="13" fill="#8B949E">repository-terminal</text>
+<text x="28" y="76" font-family="monospace" font-size="14" fill="#58A6FF">PROJECT_02</text>
+<text x="28" y="108" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">python-google-sheets-automation</text>
+<text x="28" y="133" font-family="monospace" font-size="13" fill="#8B949E">No description available.</text>
+<text x="28" y="158" font-family="monospace" font-size="13" fill="#F2CC60">Python · ★ 0</text>
+<text x="428" y="158" font-family="monospace" font-size="13" fill="#58A6FF">OPEN →</text>
+<line x1="380" y1="166" x2="530" y2="166" stroke="#58A6FF" stroke-opacity=".55" class="flow"/>
 </svg>

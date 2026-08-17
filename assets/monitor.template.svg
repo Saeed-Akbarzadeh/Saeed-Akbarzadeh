@@ -90,11 +90,11 @@
 <rect x="72" y="584" width="1056" height="126" rx="18" fill="#050A07" fill-opacity=".90" stroke="#30363D"/>
 <text x="96" y="620" font-family="monospace" font-size="16" fill="#58A6FF">$ github --signal</text>
 <g font-family="monospace" font-size="14">
-  <text x="96" y="658" fill="#8B949E">PUBLIC REPOS</text><text x="96" y="687" fill="#FFFFFF" font-size="25" font-weight="700">2</text>
-  <text x="300" y="658" fill="#8B949E">TOTAL STARS</text><text x="300" y="687" fill="#F2CC60" font-size="25" font-weight="700">0</text>
-  <text x="504" y="658" fill="#8B949E">FORKS</text><text x="504" y="687" fill="#58A6FF" font-size="25" font-weight="700">0</text>
-  <text x="688" y="658" fill="#8B949E">LANGUAGES</text><text x="688" y="687" fill="#7EE787" font-size="25" font-weight="700">1</text>
-  <text x="874" y="658" fill="#8B949E">LATEST UPDATE</text><text x="874" y="687" fill="#FFFFFF" font-size="16">2026-07-28</text>
+  <text x="96" y="658" fill="#8B949E">PUBLIC REPOS</text><text x="96" y="687" fill="#FFFFFF" font-size="25" font-weight="700">{{REPO_COUNT}}</text>
+  <text x="300" y="658" fill="#8B949E">TOTAL STARS</text><text x="300" y="687" fill="#F2CC60" font-size="25" font-weight="700">{{TOTAL_STARS}}</text>
+  <text x="504" y="658" fill="#8B949E">FORKS</text><text x="504" y="687" fill="#58A6FF" font-size="25" font-weight="700">{{TOTAL_FORKS}}</text>
+  <text x="688" y="658" fill="#8B949E">LANGUAGES</text><text x="688" y="687" fill="#7EE787" font-size="25" font-weight="700">{{LANGUAGE_COUNT}}</text>
+  <text x="874" y="658" fill="#8B949E">LATEST UPDATE</text><text x="874" y="687" fill="#FFFFFF" font-size="16">{{LATEST_UPDATE}}</text>
 </g>
 
 <!-- status / stack -->
